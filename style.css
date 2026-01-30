@@ -1,0 +1,131 @@
+body{
+  margin:0;
+  font-family:Arial;
+  min-height:100vh;
+  background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#a18cd1,#fbc2eb);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+header{
+  text-align:center;
+  padding:20px;
+  color:white;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(8px);
+}
+
+.buttons button{
+  margin:5px;
+  padding:8px 12px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:white;
+  transition:.3s;
+}
+
+.buttons button:hover{
+  background:black;
+  color:white;
+  transform:scale(1.1);
+}
+
+.gallery{
+  column-count:4;
+  column-gap:12px;
+  padding:15px;
+}
+
+.gallery img{
+  width:100%;
+  margin-bottom:12px;
+  border-radius:14px;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeIn .6s forwards;
+  transition:.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.08) rotate(1deg);
+  filter:brightness(1.2);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+@keyframes fadeIn{
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:1000px){.gallery{column-count:3}}
+@media(max-width:700px){.gallery{column-count:2}}
+@media(max-width:450px){.gallery{column-count:1}}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.lightbox.active{display:flex}
+
+.lightbox img{
+  max-width:90%;
+  max-height:70%;
+  border-radius:12px;
+  animation:zoom .4s ease;
+}
+
+@keyframes zoom{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.nav{
+  position:absolute;
+  top:50%;
+  font-size:2rem;
+  color:white;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.prev{left:20px}
+.next{right:20px}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:2rem;
+  color:white;
+  cursor:pointer;
+}
+
+.lightbox-controls{
+  margin-top:10px;
+}
+
+.lightbox-controls button,
+.lightbox-controls a{
+  padding:8px 12px;
+  border:none;
+  border-radius:20px;
+  background:white;
+  margin:5px;
+  cursor:pointer;
+  text-decoration:none;
+  color:black;
+}

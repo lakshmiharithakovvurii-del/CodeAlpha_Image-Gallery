@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Pro Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>✨ Animated Photo Gallery ✨</h1>
+
+<div class="buttons">
+<button onclick="filterImages('all')">All</button>
+<button onclick="filterImages('nature')">Nature</button>
+<button onclick="filterImages('city')">City</button>
+<button onclick="filterImages('animals')">Animals</button>
+<button onclick="filterImages('art')">Art</button>
+<button onclick="filterImages('favorites')">⭐ Favorites</button>
+<button id="slideshowBtn">▶ Slideshow</button>
+</div>
+
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+<span class="close" onclick="closeLightbox()">✖</span>
+
+<button onclick="changeImage(-1)" class="nav prev">❮</button>
+
+<img id="lightbox-img">
+
+<div class="lightbox-controls">
+<button id="favBtn">⭐ Favorite</button>
+<a id="downloadBtn" download>⬇ Download</a>
+</div>
+
+<button onclick="changeImage(1)" class="nav next">❯</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
